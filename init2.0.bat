@@ -14,6 +14,8 @@ set myjdkpath=D:\q\Java\jdk1.8.0_151_32
 set mytomcatpath=D:\q\apache-tomcat-8.5.23
 
 
+if not exist %javadir% (md %javadir%)
+
 
 echo **********************************************
 echo.
