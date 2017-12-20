@@ -5,6 +5,21 @@
 ::将目录切换到脚本所在目录
 cd /d %~dp0
 
+
+echo **********************************************
+echo.
+echo            设置开机自动启动tomcat
+echo.
+echo **********************************************
+
+
+set name=tomcat8
+call %mytomcatpath%\bin\service.bat install %name%
+sc config %name% start= AUTO
+
+echo 设置开机自动启动tomcat完成
+
+
 ::下载war包
 call download.bat
 
@@ -25,6 +40,12 @@ md %rootDir%
 
 "%zip%" x -o+ "qsct-local-server.war" "%rootDir%"
 ren qsct-local-server.war %date:~,4%%date:~5,2%%date:~8,2%%time:~,2%%time:~3,2%%time:~6,2%.war
+
+xcopy "%rootDir%\WEB-INF\classes\win32-x86\CsAutoChkin.dll" "%JAVA_HOME%\bin" /c/e/q/y
+xcopy "%rootDir%\WEB-INF\classes\win32-x86\CSCARD.dll" "%JAVA_HOME%\bin" /c/e/q/y
+xcopy "%rootDir%\WEB-INF\classes\win32-x86\CsmemCard.dll" "%JAVA_HOME%\bin" /c/e/q/y
+xcopy "%rootDir%\WEB-INF\classes\win32-x86\spromeps.dll" "%JAVA_HOME%\bin" /c/e/q/y
+
 
 ::call %tomcatDir%\startup.bat
 net start %name%

@@ -1,7 +1,7 @@
 @echo off & title 下载war包
 
 ::设置要下载的文件链接，仅支持http协议。必写项。
-set Url=
+set Url=http://cmyum.corp.qunar.com/other/easyzhu_local_server/b-171127-154819-hangyu.shen/qsct-local-server.war
 
 ::设置文件保存目录，若下载至当前目录，请留空
 set Save=%~dp0
