@@ -13,7 +13,7 @@ echo.
 echo **********************************************
 
 
-set name=tomcat8
+set name=Tomcat8
 call %mytomcatpath%\bin\service.bat install %name%
 sc config %name% start= AUTO
 
@@ -26,7 +26,6 @@ call download.bat
 set tomcatDir=%CATALINA_HOME%\bin
 set rootDir=%CATALINA_HOME%\webapps\ROOT
 set zip=C:\Program Files\WinRAR\WinRAR.exe
-set name=tomcat_8080
 
 ::call %tomcatDir%\shutdown.bat
 net stop %name%
