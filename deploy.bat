@@ -12,9 +12,12 @@ echo            设置开机自动启动tomcat
 echo.
 echo **********************************************
 
+set tomcatDir=%CATALINA_HOME%\bin
+set rootDir=%CATALINA_HOME%\webapps\ROOT
+set zip=C:\Program Files\WinRAR\WinRAR.exe
 
 set name=Tomcat8
-call %mytomcatpath%\bin\service.bat install %name%
+call %tomcatDir%\service.bat install %name%
 sc config %name% start= AUTO
 
 echo 设置开机自动启动tomcat完成
@@ -22,10 +25,6 @@ echo 设置开机自动启动tomcat完成
 
 ::下载war包
 call download.bat
-
-set tomcatDir=%CATALINA_HOME%\bin
-set rootDir=%CATALINA_HOME%\webapps\ROOT
-set zip=C:\Program Files\WinRAR\WinRAR.exe
 
 ::call %tomcatDir%\shutdown.bat
 net stop %name%
